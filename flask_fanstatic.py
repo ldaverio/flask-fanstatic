@@ -5,6 +5,12 @@ from werkzeug import cached_property
 from werkzeug.utils import import_string
 from werkzeug.wsgi import DispatcherMiddleware
 
+# Test for Python 2 / Python 3 compatibility
+try:
+  basestring
+except NameError:
+  basestring = str
+
 
 class Fanstatic(object):
   def __init__(self, app=None):
